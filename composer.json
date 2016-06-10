@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Aego\\OAuth2\\Client\\Provider\\": "src/"
+            "Max107\\OAuth2\\Client\\Provider\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Aego\\OAuth2\\Client\\Test\\Provider\\": "test/"
+            "Max107\\OAuth2\\Client\\Test\\Provider\\": "test/"
         }
     }
 }
