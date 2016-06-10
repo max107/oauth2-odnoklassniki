@@ -1,5 +1,5 @@
 {
-    "name": "aego/oauth2-odnoklassniki",
+    "name": "max107/oauth2-odnoklassniki",
     "description": "Odnoklassniki provider for league/oauth2-client",
     "license": "MIT",
     "authors": [
