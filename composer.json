@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "league/oauth2-client": "~0.5"
+        "league/oauth2-client": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.3"
