@@ -45,11 +45,11 @@ class Odnoklassniki extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        $param = 'application_key='.$this->clientPublic
-            .'&fields=uid,name,first_name,last_name,location,pic_3,gender,locale'
-            .'&method=users.getCurrentUser';
-        $sign = md5(str_replace('&', '', $param).md5($token.$this->clientSecret));
-        return 'http://api.odnoklassniki.ru/fb.do?'.$param.'&access_token='.$token.'&sig='.$sign;
+        $param = 'application_key=' . $this->clientPublic
+            . '&fields=uid,name,first_name,last_name,location,pic_3,gender,locale'
+            . '&method=users.getCurrentUser';
+        $sign = md5(str_replace('&', '', $param) . md5($token . $this->clientSecret));
+        return 'http://api.odnoklassniki.ru/fb.do?' . $param . '&access_token=' . $token . '&sig=' . $sign;
     }
 
     /**

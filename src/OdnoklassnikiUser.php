@@ -32,7 +32,37 @@ class OdnoklassnikiUser implements ResourceOwnerInterface
      */
     public function getId()
     {
-        return $this->data['id'];
+        return $this->data['uid'];
+    }
+
+    public function getFirstName()
+    {
+        return $this->data['first_name'];
+    }
+
+    public function getLastName()
+    {
+        return $this->data['last_name'];
+    }
+
+    public function getGender()
+    {
+        return $this->data['gender'];
+    }
+
+    public function getName()
+    {
+        return $this->data['name'];
+    }
+
+    public function getImageUrl()
+    {
+        return $this->data['pic_3'];
+    }
+
+    public function getLocale()
+    {
+        return $this->data['locale'];
     }
 
     /**
