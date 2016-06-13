@@ -1,8 +1,8 @@
 # Odnoklassniki OAuth2 client provider
 
-[![Build Status](https://img.shields.io/travis/max107/oauth2-odnoklassniki.svg)](https://travis-ci.org/rakeev/oauth2-odnoklassniki)
-[![Latest Version](https://img.shields.io/packagist/v/max107/oauth2-odnoklassniki.svg)](https://packagist.org/packages/aego/oauth2-odnoklassniki)
-[![License](https://img.shields.io/packagist/l/max107/oauth2-odnoklassniki.svg)](https://packagist.org/packages/aego/oauth2-odnoklassniki)
+[![Build Status](https://img.shields.io/travis/max107/oauth2-odnoklassniki.svg)](https://travis-ci.org/max107/oauth2-odnoklassniki)
+[![Latest Version](https://img.shields.io/packagist/v/max107/oauth2-odnoklassniki.svg)](https://packagist.org/packages/max107/oauth2-odnoklassniki)
+[![License](https://img.shields.io/packagist/l/max107/oauth2-odnoklassniki.svg)](https://packagist.org/packages/max107/oauth2-odnoklassniki)
 
 This package provides [Odnoklassniki](http://ok.ru) integration for [OAuth2 Client](https://github.com/thephpleague/oauth2-client) by the League.
 
