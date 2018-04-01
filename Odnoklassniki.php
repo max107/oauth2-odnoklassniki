@@ -1,11 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Max107\OAuth2\Client\Provider;
 
+use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use League\OAuth2\Client\Token\AccessToken;
-use League\OAuth2\Client\Provider\AbstractProvider;
 use Psr\Http\Message\ResponseInterface;
 
 class Odnoklassniki extends AbstractProvider
@@ -30,6 +37,7 @@ class Odnoklassniki extends AbstractProvider
      * Eg. https://oauth.service.com/token
      *
      * @param array $params
+     *
      * @return string
      */
     public function getBaseAccessTokenUrl(array $params)
@@ -41,15 +49,17 @@ class Odnoklassniki extends AbstractProvider
      * Returns the URL for requesting the resource owner's details.
      *
      * @param AccessToken $token
+     *
      * @return string
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        $param = 'application_key=' . $this->clientPublic
-            . '&fields=uid,name,first_name,last_name,location,pic_3,gender,locale'
-            . '&method=users.getCurrentUser';
-        $sign = md5(str_replace('&', '', $param) . md5($token . $this->clientSecret));
-        return 'http://api.odnoklassniki.ru/fb.do?' . $param . '&access_token=' . $token . '&sig=' . $sign;
+        $param = 'application_key='.$this->clientPublic
+            .'&fields=uid,name,email,first_name,last_name,location,pic_3,gender,locale'
+            .'&method=users.getCurrentUser';
+        $sign = md5(str_replace('&', '', $param).md5($token.$this->clientSecret));
+
+        return 'http://api.odnoklassniki.ru/fb.do?'.$param.'&access_token='.$token.'&sig='.$sign;
     }
 
     /**
@@ -62,33 +72,34 @@ class Odnoklassniki extends AbstractProvider
      */
     protected function getDefaultScopes()
     {
-        return [];
+        return [
+            'GET_EMAIL',
+        ];
     }
 
     /**
      * Checks a provider response for errors.
      *
+     * @param ResponseInterface $response
+     * @param array|string      $data     Parsed response data
+     *
      * @throws IdentityProviderException
-     * @param  ResponseInterface $response
-     * @param  array|string $data Parsed response data
-     * @return void
      */
     protected function checkResponse(ResponseInterface $response, $data)
     {
-
     }
 
     /**
      * Generates a resource owner object from a successful resource owner
      * details request.
      *
-     * @param  array $response
-     * @param  AccessToken $token
+     * @param array       $response
+     * @param AccessToken $token
+     *
      * @return ResourceOwnerInterface
      */
     protected function createResourceOwner(array $response, AccessToken $token)
     {
-        $user = new OdnoklassnikiUser($response);
-        return $user;
+        return new OdnoklassnikiUser($response);
     }
 }

@@ -1,9 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: max
- * Date: 11/06/16
- * Time: 01:35
+
+declare(strict_types=1);
+
+/*
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Max107\OAuth2\Client\Provider;
@@ -18,7 +19,7 @@ class OdnoklassnikiUser implements ResourceOwnerInterface
     protected $data;
 
     /**
-     * @param  array $response
+     * @param array $response
      */
     public function __construct(array $response)
     {

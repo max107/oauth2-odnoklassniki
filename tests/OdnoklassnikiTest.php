@@ -1,19 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Max107\OAuth2\Client\Test\Provider;
 
 use League\OAuth2\Client\Token\AccessToken;
+use Max107\OAuth2\Client\Provider\Odnoklassniki;
 use Max107\OAuth2\Client\Provider\OdnoklassnikiUser;
+use PHPUnit\Framework\TestCase;
 
-/**
- * Class OdnoklassnikiTest
- * @package Max107\OAuth2\Client\Test\Provider
- * @property \Max107\OAuth2\Client\Provider\Odnoklassniki provider
- */
-class OdnoklassnikiTest extends \PHPUnit_Framework_TestCase
+class OdnoklassnikiTest extends TestCase
 {
+    /**
+     * @var array
+     */
     protected $response;
+    /**
+     * @var Odnoklassniki
+     */
     protected $provider;
+    /**
+     * @var AccessToken
+     */
     protected $token;
 
     protected function setUp()
@@ -21,7 +34,7 @@ class OdnoklassnikiTest extends \PHPUnit_Framework_TestCase
         $this->response = json_decode('{"uid":"12345678901","first_name":"First","last_name":"Last",'
             .'"name":"First Last","locale":"ru","gender":"male","pic_3":"http://mock.ph/oto.jpg","location":'
             .'{"city":"Тольятти","country":"RUSSIAN_FEDERATION","countryCode":"RU","countryName":"Россия"}}', true);
-        $this->provider = new \Max107\OAuth2\Client\Provider\Odnoklassniki([
+        $this->provider = new Odnoklassniki([
             'clientId' => 'mock',
             'clientPublic' => 'mock_public',
             'clientSecret' => 'mock_secret',
